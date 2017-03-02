@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/01/My-New-Post/" class="article-date">
+  <time datetime="2017-03-01T13:20:47.000Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/01/My-New-Post/">My New Post</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用代码段积累"><a href="#常用代码段积累" class="headerlink" title="常用代码段积累"></a>常用代码段积累</h2><p>1：js获取非行内样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;js获取非行内样式&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        #div1 &#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            background: red;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        window.onload = function () &#123;</div><div class="line">            var oDiv = document.getElementById(&quot;div1&quot;);</div><div class="line">            oDiv.onclick = function () &#123;</div><div class="line">                //obj.currentStyle.height IE</div><div class="line">                //getComputedStyle(obj,null).height; 高级</div><div class="line">                if (this.currentStyle) &#123;</div><div class="line">                    alert(&quot;ie:&quot; + this.currentStyle.height);</div><div class="line">                &#125; else &#123;</div><div class="line">                    alert(&quot;高级:&quot; + getComputedStyle(this, null).height);</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>核心代码还可以这么写，从浏览器能力检测角度看性能更优，毕竟大部分用户的浏览器是现代的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if (window.getComputedStyle) &#123;</div><div class="line">    alert(getComputedStyle(this, null).height);</div><div class="line">&#125; else &#123;</div><div class="line">    alert(this.currentStyle.height);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2：时间对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        var oDate = new Date(1482476449 * 1000);//传入一个时间戳</div><div class="line">        var iYear = oDate.getFullYear();</div><div class="line">        var iMonth = oDate.getMonth() + 1;</div><div class="line">        var iDay = oDate.getDate();</div><div class="line">        var iHour = oDate.getHours();</div><div class="line">        var iMin = oDate.getMinutes();</div><div class="line">        var iSec = oDate.getSeconds();</div><div class="line">        //时间数组</div><div class="line">        var arr = [</div><div class="line">            oDate.getFullYear(), &quot;-&quot;,</div><div class="line">            oDate.getMonth() + 1, &quot;-&quot;,</div><div class="line">            oDate.getDate(), &quot; &quot;,</div><div class="line">            oDate.getHours(), &quot;:&quot;,</div><div class="line">            oDate.getMinutes(), &quot;:&quot;,</div><div class="line">            oDate.getSeconds()</div><div class="line">        ];</div><div class="line">        //把数组里的元素按照某个规则连接成字符串2016-12-23 15:0:49</div><div class="line">        document.write(arr.join(&quot;&quot;));</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>3：ajax<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">function json2url(json)&#123;</div><div class="line">  var arr = [];</div><div class="line">  json.t = Math.random();</div><div class="line">  for(var name in json)&#123;</div><div class="line">    arr.push(name + &quot;=&quot; + encodeURIComponent(json[name]));</div><div class="line">  &#125;</div><div class="line">  return arr.join(&quot;&amp;&quot;);</div><div class="line">&#125;</div><div class="line">//options:url,type,data,success,error,timeout</div><div class="line">function ajax(options)&#123;</div><div class="line"></div><div class="line">  options = options || &#123;&#125;;</div><div class="line">  if(!options.url)&#123;</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  options.type = options.type || &quot;get&quot;;</div><div class="line">  options.data = options.data || &#123;&#125;;</div><div class="line">  options.timeout = options.timeout || 0;</div><div class="line"></div><div class="line">  var str = json2url(options.data);</div><div class="line"></div><div class="line">  //1 创建</div><div class="line">  if(window.XMLHttpRequest)&#123;</div><div class="line">    var xhr = new XMLHttpRequest();</div><div class="line">  &#125; else &#123;</div><div class="line">    var xhr = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  if(options.type == &quot;get&quot;)&#123;</div><div class="line">    //2 连接</div><div class="line">    xhr.open(&quot;get&quot;,options.url + &quot;?&quot; + str,true);</div><div class="line">    //3 发送</div><div class="line">    xhr.send();</div><div class="line">  &#125; else &#123;</div><div class="line">    //2 连接</div><div class="line">    xhr.open(&quot;post&quot;,options.url,true);</div><div class="line">    xhr.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line">    //3 发送</div><div class="line">    xhr.send(str);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  //4 接收</div><div class="line">  xhr.onreadystatechange = function()&#123;</div><div class="line">    if(xhr.readyState == 4)&#123;</div><div class="line">      clearTimeout(timer);</div><div class="line">      if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304)&#123;</div><div class="line">        options.success &amp;&amp; options.success(xhr.responseText);</div><div class="line">      &#125; else &#123;</div><div class="line">        options.error &amp;&amp; options.error(xhr.status);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  if(options.timeout)&#123;</div><div class="line">    var timer = setTimeout(function()&#123;</div><div class="line">      //终止ajax请求</div><div class="line">      //abort</div><div class="line">      alert(&quot;超时&quot;);</div><div class="line">      xhr.abort();</div><div class="line"></div><div class="line">    &#125;,options.timeout);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4:jsonp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">//options url data cbName success error timeout</div><div class="line">function jsonp(options) &#123;</div><div class="line">    options = options || &#123;&#125;;</div><div class="line">//init</div><div class="line">    if (!options.url) return;</div><div class="line">    options.data = options.data || &#123;&#125;;</div><div class="line">    options.cbName = options.cbName || &quot;cb&quot;;</div><div class="line">    options.timeout = options.timeout || 0;</div><div class="line">//para处理</div><div class="line">    var fnName = (&quot;jsonp_&quot; + Math.random()).replace(&quot;.&quot;, &quot;&quot;);//必须放在options.cbName起码保证在遍历options.data时定义</div><div class="line">    options.data[options.cbName] = fnName;</div><div class="line">    var arr = [];</div><div class="line">    for (var name in options.data) &#123;</div><div class="line">        arr.push(name + &quot;=&quot; + encodeURIComponent(options.data[name]));</div><div class="line">    &#125;</div><div class="line">    var str = arr.join(&quot;&amp;&quot;);</div><div class="line"></div><div class="line"></div><div class="line">    //2 全局函数</div><div class="line"></div><div class="line">    window[fnName] = function (json) &#123;</div><div class="line"></div><div class="line">        options.success &amp;&amp; options.success(json);</div><div class="line">        window[fnName] = null;</div><div class="line">        oHead.removeChild(oS);</div><div class="line">        clearTimeout(timer);</div><div class="line">    &#125;;</div><div class="line">    //1 创建script</div><div class="line">    var oS = document.createElement(&quot;script&quot;);</div><div class="line">    oS.src = options.url + &quot;?&quot; + str;</div><div class="line">    var oHead = document.getElementsByTagName(&quot;head&quot;)[0];</div><div class="line">    oHead.appendChild(oS);//</div><div class="line"></div><div class="line">//超时</div><div class="line">    if (options.timeout) &#123;</div><div class="line">        var timer = setTimeout(function () &#123;</div><div class="line">            options.error &amp;&amp; options.error();</div><div class="line">            window[fnName] = function () &#123;</div><div class="line">            &#125;;</div><div class="line">            oHead.removeChild(oS);</div><div class="line">        &#125;, options.timeout);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/01/My-New-Post/" data-id="cizrsk7sy0000m0uvl7pgpcxb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/01/hello-world/" class="article-date">
+  <time datetime="2017-03-01T13:10:55.198Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/01/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/01/hello-world/" data-id="cizrsk7t40001m0uv01ifctk2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/01/My-New-Post/">My New Post</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
